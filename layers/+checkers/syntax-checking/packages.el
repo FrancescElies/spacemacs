@@ -87,6 +87,7 @@
         "eb" 'flycheck-buffer
         "ec" 'flycheck-clear
         "eh" 'flycheck-describe-checker
+        "ek" 'flycheck-copy-errors-as-kill
         "el" 'spacemacs/toggle-flycheck-error-list
         "eL" 'spacemacs/goto-flycheck-error-list
         "es" 'flycheck-select-checker
