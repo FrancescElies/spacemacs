@@ -17,7 +17,8 @@
     (spacemacs/set-leader-keys "aS" 'prodigy)
     :config
     (evilified-state-evilify prodigy-view-mode prodigy-view-mode-map
-      "c" 'prodigy-view-clear-buffer)
+      "c" 'prodigy-view-clear-buffer
+      "gf" 'find-file-at-point)
     (evilified-state-evilify prodigy-mode prodigy-mode-map
       "h" 'prodigy-first
       "j" 'prodigy-next
@@ -31,4 +32,4 @@
       "g" 'prodigy-jump-magit
       "Y" 'prodigy-copy-cmd
       "R" 'revert-buffer)
-    (evil-define-key 'motion prodigy-view-mode-map (kbd "gf") 'find-file-at-point)))
+    ))
