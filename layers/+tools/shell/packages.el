@@ -173,6 +173,7 @@
       ;; multi-term commands to create terminals and move through them.
       (spacemacs/set-leader-keys-for-major-mode 'term-mode
         "c" 'multi-term
+        "C" 'spacemacs/comint-clear-buffer
         "p" 'multi-term-prev
         "n" 'multi-term-next))))
 
