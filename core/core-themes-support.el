@@ -102,7 +102,7 @@
     (base16-seti                      . base16-theme)
     (base16-seti-ui                   . base16-theme)
     (base16-shapeshifter              . base16-theme)
-    (base16-solar-flare               . base16-theme)
+    (base16-solarflare                . base16-theme)
     (base16-solarized-dark            . base16-theme)
     (base16-solarized-light           . base16-theme)
     (base16-spacemacs                 . base16-theme)
@@ -323,7 +323,7 @@ has been changed to THEME."
             (setcar theme2 pkg-name)
           (setq theme2 pkg-name))
         (add-to-list 'dotspacemacs--additional-theme-packages theme2)))))
-(add-hook 'configuration-layer-pre-sync-hook
+(add-hook 'configuration-layer-pre-load-hook
           'spacemacs//add-theme-packages-to-additional-packages)
 
 (provide 'core-themes-support)

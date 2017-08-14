@@ -127,7 +127,6 @@ to each =.org= file you want to process:
 #+END_EXAMPLE
 
 ** Org-journal support
-
 [[https://github.com/bastibe/org-journal][org-journal]] is a simple journal management system for keeping a seperate journal
 file for each day inside a directory.
 
@@ -236,7 +235,7 @@ the following snippet. Note that this may have unintended consequences until
 #+BEGIN_SRC emacs-lisp
   (with-eval-after-load 'org-agenda
     (require 'org-projectile)
-    (push (org-projectile:todo-files) org-agenda-files))
+    (push (org-projectile-todo-files) org-agenda-files))
 #+END_SRC
 
 ** Org-brain support
@@ -266,6 +265,7 @@ To permanently enable mode line display of org clock, add this snippet to your
 | ~SPC a o k i~ | org clock in last              |
 | ~SPC a o k j~ | org jump to current clock      |
 | ~SPC a o k o~ | org clock out                  |
+| ~SPC a o k r~ | org resolve clocks             |
 | ~SPC a o l~   | org store link                 |
 | ~SPC a o m~   | org tags view                  |
 | ~SPC a o o~   | org agenda                     |
@@ -299,6 +299,7 @@ To permanently enable mode line display of org clock, add this snippet to your
 | ~SPC m C g~                                  | evil-org-recompute-clocks                    |
 | ~SPC m C i~                                  | org-clock-in                                 |
 | ~SPC m C o~                                  | org-clock-out                                |
+| ~SPC m C r~                                  | org-resolve-clocks                           |
 | ~SPC m d d~                                  | org-deadline                                 |
 | ~SPC m d s~                                  | org-schedule                                 |
 | ~SPC m d t~                                  | org-time-stamp                               |
@@ -333,6 +334,15 @@ Please see the [[https://github.com/Somelauw/evil-org-mode/blob/master/doc/keyth
 | ~M-J~ / ~M-K~ | Move subtree                    |
 | ~M-H~ / ~M-L~ | Promote or demote subtree       |
 | ~>>~ / ~<<~   | Promote or demote heading       |
+
+If the layer variable =org-want-todo-bindings= is true, the following bindings
+are also available.
+
+| Key Bindings | Description                         |
+|--------------+-------------------------------------|
+| ~t~          | Cycle TODO state of current heading |
+| ~T~          | Insert new TODO heading             |
+| ~M-t~        | Insert new TODO sub-heading         |
 
 ** Tables
 
@@ -616,8 +626,7 @@ are available.
 
 | Key Binding | Description                  |
 |-------------+------------------------------|
-| ~SPC a o b~ | Opens a new org-brain entry  |
-| ~SPC a o B~ | Visualize an org-brain entry |
+| ~SPC a o b~ | Visualize an org-brain entry |
 
 *** Visualization bindings
 

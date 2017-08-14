@@ -30,7 +30,7 @@
         (org-mime :location built-in)
         org-pomodoro
         org-present
-        (org-projectile :toggle (configuration-layer/package-usedp 'projectile))
+        (org-projectile :requires projectile)
         (ox-twbs :toggle org-enable-bootstrap-support)
         ;; use a for of ox-gfm to fix index generation
         (ox-gfm :location (recipe :fetcher github :repo "syl20bnr/ox-gfm")
@@ -54,7 +54,10 @@
     :init
     (progn
       (add-hook 'org-mode-hook 'spacemacs//evil-org-mode)
-      (setq evil-org-key-theme '(textobjects navigation additional)))
+      (setq evil-org-key-theme `(textobjects
+                                 navigation
+                                 additional
+                                 ,@(when org-want-todo-bindings '(todo)))))
     :config
     (spacemacs|diminish evil-org-mode " ⓔ" " e")))
 
@@ -132,6 +135,8 @@
           "a" 'org-edit-src-abort
           "k" 'org-edit-src-abort))
 
+      (add-hook 'org-mode-hook 'dotspacemacs//prettify-spacemacs-docs)
+
       (let ((dir (configuration-layer/get-layer-local-dir 'org)))
         (setq org-export-async-init-file (concat dir "org-async-init.el")))
       (defmacro spacemacs|org-emphasize (fname char)
@@ -174,6 +179,7 @@ Will work on both org-mode and any mode that accepts plain html."
         "Cc" 'org-clock-cancel
         "Ci" 'org-clock-in
         "Co" 'org-clock-out
+        "Cr" 'org-resolve-clocks
         "dd" 'org-deadline
         "ds" 'org-schedule
         "dt" 'org-time-stamp
@@ -285,6 +291,7 @@ Will work on both org-mode and any mode that accepts plain html."
         "aoki" 'org-clock-in-last
         "aokj" 'org-clock-jump-to-current-clock
         "aoko" 'org-clock-out
+        "aokr" 'org-resolve-clocks
         "aol" 'org-store-link
         "aom" 'org-tags-view
         "aoo" 'org-agenda
@@ -458,8 +465,7 @@ Headline^^            Visit entry^^               Filter^^                    Da
     :init
     (progn
       (spacemacs/set-leader-keys
-        "aob" 'org-brain-open
-        "aoB" 'org-brain-visualize)
+        "aob" 'org-brain-visualize)
       (evil-set-initial-state 'org-brain-visualize-mode 'emacs))))
 
 (defun org/init-org-expiry ()
@@ -538,7 +544,7 @@ Headline^^            Visit entry^^               Filter^^                    Da
 
 (defun org/init-org-projectile ()
   (use-package org-projectile
-    :commands (org-projectile:location-for-project)
+    :commands (org-projectile-location-for-project)
     :init
     (progn
       (spacemacs/set-leader-keys
@@ -549,12 +555,11 @@ Headline^^            Visit entry^^               Filter^^                    Da
     :config
     (if (file-name-absolute-p org-projectile-file)
         (progn
-          (setq org-projectile:projects-file org-projectile-file)
-          (push (org-projectile:project-todo-entry
-                 nil nil nil :empty-lines 1)
+          (setq org-projectile-projects-file org-projectile-file)
+          (push (org-projectile-project-todo-entry :empty-lines 1)
                 org-capture-templates))
-      (org-projectile:per-repo)
-      (setq org-projectile:per-repo-filename org-projectile-file))))
+      (org-projectile-per-project)
+      (setq org-projectile-per-project-filepath org-projectile-file))))
 
 (defun org/init-ox-twbs ()
   (spacemacs|use-package-add-hook org :post-config (require 'ox-twbs)))

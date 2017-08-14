@@ -130,8 +130,26 @@ automatically applied to."
   (when (require 'centered-buffer-mode nil t)
     (call-interactively 'spacemacs-centered-buffer-mode)))
 
+(defun spacemacs/toggle-centered-buffer-mode-frame ()
+  "Open current buffer in the new frame centered and without mode-line."
+  (interactive)
+  (when (require 'centered-buffer-mode nil t)
+    (switch-to-buffer-other-frame (current-buffer) t)
+    (toggle-frame-fullscreen)
+    (run-with-idle-timer
+     ;; FIXME: We need this delay to make sure that the
+     ;; `toggle-frame-fullscreen' fully "finished"
+     ;; it will be better to use something more reliable
+     ;; instead :)
+     1
+     nil
+     (lambda ()
+       (call-interactively 'spacemacs-centered-buffer-mode)
+       (setq mode-line-format nil)))))
+
 (defun spacemacs/centered-buffer-mode-full-width ()
   "Center buffer in the frame."
+  ;; FIXME Needs new key-binding.
   (interactive)
   (when (require 'centered-buffer-mode nil t)
     (spacemacs/maximize-horizontally)
@@ -286,7 +304,7 @@ projectile cache when it's possible and update recentf list."
              (when (fboundp 'recentf-add-file)
                (recentf-add-file new-name)
                (recentf-remove-if-non-kept filename))
-             (when (and (configuration-layer/package-usedp 'projectile)
+             (when (and (configuration-layer/package-used-p 'projectile)
                         (projectile-project-p))
                (call-interactively #'projectile-invalidate-cache))
              (message "File '%s' successfully renamed to '%s'" short-name (file-name-nondirectory new-name)))))))
@@ -321,7 +339,7 @@ initialized with the current filename."
                  (when (fboundp 'recentf-add-file)
                    (recentf-add-file new-name)
                    (recentf-remove-if-non-kept filename))
-                 (when (and (configuration-layer/package-usedp 'projectile)
+                 (when (and (configuration-layer/package-used-p 'projectile)
                             (projectile-project-p))
                    (call-interactively #'projectile-invalidate-cache))
                  (message "File '%s' successfully renamed to '%s'"
@@ -369,7 +387,7 @@ removal."
     (when (or (not ask-user)
               (yes-or-no-p "Are you sure you want to delete this file? "))
       (delete-file filename)
-      (when (and (configuration-layer/package-usedp 'projectile)
+      (when (and (configuration-layer/package-used-p 'projectile)
                  (projectile-project-p))
         (call-interactively #'projectile-invalidate-cache)))))
 
@@ -392,7 +410,7 @@ FILENAME is deleted using `spacemacs/delete-file' function.."
       (when (yes-or-no-p "Are you sure you want to delete this file? ")
         (delete-file filename t)
         (kill-buffer buffer)
-        (when (and (configuration-layer/package-usedp 'projectile)
+        (when (and (configuration-layer/package-used-p 'projectile)
                    (projectile-project-p))
           (call-interactively #'projectile-invalidate-cache))
         (message "File '%s' successfully removed" filename)))))
@@ -539,12 +557,15 @@ A SPLIT argument with the value: `left',
 `below', `above' or `right', opens the new
 buffer in a split window."
   (interactive)
-  (let ((newbuf (generate-new-buffer-name "untitled")))
+  (let ((newbuf (generate-new-buffer "untitled")))
     (case split
       ('left  (split-window-horizontally))
       ('below (spacemacs/split-window-vertically-and-switch))
       ('above (split-window-vertically))
       ('right (spacemacs/split-window-horizontally-and-switch)))
+    ;; Prompt to save on `save-some-buffers' with positive PRED
+    (with-current-buffer newbuf
+      (setq-local buffer-offer-save t))
     ;; pass non-nil force-same-window to prevent `switch-to-buffer' from
     ;; displaying buffer in another window
     (switch-to-buffer newbuf nil 'force-same-window)))
@@ -691,7 +712,7 @@ dotspacemacs-persistent-server to be t"
   "Prompt to save changed buffers and exit Spacemacs"
   (interactive)
   (setq spacemacs-really-kill-emacs t)
-  (save-some-buffers)
+  (save-some-buffers nil t)
   (kill-emacs))
 
 (defun spacemacs/frame-killer ()
@@ -1135,6 +1156,21 @@ if prefix argument ARG is given, switch to it in an other, possibly new window."
                (fboundp dotspacemacs-scratch-mode))
       (funcall dotspacemacs-scratch-mode))))
 
+(defvar spacemacs--killed-buffer-list nil
+  "List of recently killed buffers.")
+
+(defun spacemacs//add-buffer-to-killed-list ()
+  "If buffer is associated with a file name, add that file
+to the `killed-buffer-list' when killing the buffer."
+  (when buffer-file-name
+    (push buffer-file-name spacemacs--killed-buffer-list)))
+
+(defun spacemacs/reopen-killed-buffer ()
+  "Reopen the most recently killed file buffer, if one exists."
+  (interactive)
+  (when spacemacs--killed-buffer-list
+    (find-file (pop spacemacs--killed-buffer-list))))
+
 (defun spacemacs/switch-to-messages-buffer (&optional arg)
   "Switch to the `*Messages*' buffer.
 if prefix argument ARG is given, switch to it in an other, possibly new window."
@@ -1175,12 +1211,18 @@ Decision is based on `dotspacemacs-line-numbers'."
 
 (defun spacemacs//linum-update-window-scale-fix (win)
   "Fix linum for scaled text in the window WIN."
-  (set-window-margins win
-                      (ceiling (* (if (boundp 'text-scale-mode-step)
-                                      (expt text-scale-mode-step
-                                            text-scale-mode-amount)
-                                    1)
-                                  (or (car (window-margins win)) 1)))))
+  (when (display-multi-font-p)
+    (unless (boundp 'text-scale-mode-step)
+      (setq window-initial-margins (window-margins win)))
+    (set-window-margins win
+     (ceiling (* (if (boundp 'text-scale-mode-step)
+                   (expt text-scale-mode-step
+                     text-scale-mode-amount)
+                   1)
+                (or (car (if (boundp 'window-initial-margins)
+                           window-initial-margins
+                           (window-margins win)))
+                  1))))))
 
 (defun spacemacs//linum-backward-compabitility ()
   "Return non-nil if `dotspacemacs-line-numbers' has an old format and if

@@ -20,7 +20,7 @@
     (unless (equal (bound-and-true-p  calendar-latitude) _latitdue)
       (setq calendar-latitude _latitdue
             location-changed-p t))
-    (when (and (configuration-layer/layer-usedp 'geolocation) location-changed-p)
+    (when (and (configuration-layer/layer-used-p 'geolocation) location-changed-p)
       (message "Location changed %s %s (restarting rase-timer)" calendar-latitude calendar-longitude)
       (rase-start t))))
 
@@ -34,6 +34,10 @@
                   osx-location-longitude))))
 
 (defun geolocation//activate-theme-changer ()
+  (unless (bound-and-true-p calendar-longitude)
+    (user-error "calendar-longitude is not set"))
+  (unless (bound-and-true-p calendar-latitude)
+    (user-error "calendar-latitude is not set"))
   (when (> (length dotspacemacs-themes) 1)
     (change-theme (nth 0 dotspacemacs-themes)
                   (nth 1 dotspacemacs-themes))))

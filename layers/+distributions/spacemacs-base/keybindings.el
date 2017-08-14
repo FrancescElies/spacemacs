@@ -20,6 +20,7 @@
                                        ("as"  "shells")
                                        ("ay"  "ipython notebook")
                                        ("b"   "buffers")
+                                       ("bN"  "new empty buffer")
                                        ("c"   "compile/comments")
                                        ("C"   "capture/colors")
                                        ("e"   "errors")
@@ -65,6 +66,7 @@
                                        ("xa"  "align")
                                        ("xd"  "delete")
                                        ("xg"  "google-translate")
+                                       ("xj"  "justification")
                                        ("xl"  "lines")
                                        ("xm"  "move")
                                        ("xt"  "transpose")
@@ -138,6 +140,7 @@
   "bp"    'previous-buffer
   "bR"    'spacemacs/safe-revert-buffer
   "bs"    'spacemacs/switch-to-scratch-buffer
+  "bu"    'spacemacs/reopen-killed-buffer
   "bY"    'spacemacs/copy-whole-buffer-to-clipboard
   "bw"    'read-only-mode)
 (dotimes (i 9)
@@ -412,7 +415,7 @@
   "w <right>"  'evil-window-right
   "wm"  'spacemacs/toggle-maximize-buffer
   "wc"  'spacemacs/toggle-centered-buffer-mode
-  "wC"  'spacemacs/centered-buffer-mode-full-width
+  "wC"  'spacemacs/toggle-centered-buffer-mode-frame
   "wo"  'other-frame
   "wr"  'spacemacs/rotate-windows-forward
   "wR"  'spacemacs/rotate-windows-backward
@@ -466,6 +469,8 @@
   "xlu" 'spacemacs/uniquify-lines
   "xtc" 'transpose-chars
   "xtl" 'transpose-lines
+  "xtp" 'transpose-paragraphs
+  "xts" 'transpose-sentences
   "xtw" 'transpose-words
   "xU"  'upcase-region
   "xu"  'downcase-region
@@ -564,7 +569,7 @@
  [_0_.._9_] window 0..9   [_r_]^^   rotate fwd  [_v_] horizontal      [_{_] shrink verti   [_d_] close current
  [_w_]^^    other window  [_R_]^^   rotate bwd  [_V_] horiz & follow  [_}_] enlarge verti  [_D_] close other
  [_o_]^^    other frame   ^^^^                  ^^                    ^^                   "
-               (if (configuration-layer/package-usedp 'golden-ratio)
+               (if (configuration-layer/package-used-p 'golden-ratio)
                    "[_g_] golden-ratio %`golden-ratio-mode"
                  "")
                "\n ^^^^                     ^^^^                  ^^                    ^^                   [_q_] quit")
