@@ -13,16 +13,6 @@
   (interactive)
   (spacemacs/notmuch-message-delete "up"))
 
-(defun spacemacs/archive-by-removing-inbox-tag (&optional beg end)
-  "archive by removing inbox tag"
-  (interactive (notmuch-search-interactive-region))
-  (notmuch-search-tag (list "+archive" "-inbox") beg end))
-
-(defun spacemacs/notmuch-message-archive ()
-  (interactive)
-  (notmuch-search-tag '("+archived" "-inbox" "-unread"))
-  (notmuch-search-next-thread))
-
 (defun spacemacs/notmuch-trash (&optional beg end)
   "trash by removing inbox and adding trash"
   (interactive (notmuch-search-interactive-region))
@@ -41,11 +31,6 @@
       "create a new frame for the mail composition"
       (compose-mail-other-frame))
     (notmuch-show-next-thread t)))
-
-(defun spacemacs/notmuch-remove-inbox-tag ()
-  "archive by removing INBOX tag"
-  (interactive (notmuch-search-interactive-region))
-  (notmuch-search-tag (list "+archive" "-inbox") beg end))
 
 (defun spacemacs/notmuch-show-prefer-html-over-text ()
   (interactive)

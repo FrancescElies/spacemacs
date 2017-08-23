@@ -81,7 +81,7 @@
       (evilified-state-evilify-map notmuch-search-mode-map
         :mode notmuch-search-mode
         :bindings
-        (kbd "a") 'spacemacs/notmuch-message-archive
+        (kbd "a") 'notmuch-search-archive-thread
         (kbd "d") 'spacemacs/notmuch-message-delete-down
         (kbd "D") 'spacemacs/notmuch-message-delete-up
         (kbd "J") 'notmuch-jump-search
@@ -98,7 +98,7 @@
         "a" 'notmuch-search-archive-thread
         "-" 'notmuch-search-remove-tag
         "+" 'notmuch-search-add-tag
-        "F" 'spacemacs/archive-by-removing-inbox-tag)
+        )
 
       (setq message-sendmail-f-is-evil 't)
       ))
