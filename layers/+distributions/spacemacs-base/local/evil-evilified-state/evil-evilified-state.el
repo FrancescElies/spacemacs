@@ -58,7 +58,7 @@
  Hybrid `emacs state' with carrefully selected Vim key bindings.
  See spacemacs conventions for more info."
   :tag " <N'> "
-  :enable (emacs)
+  :enable (motion)
   :message "-- EVILIFIED BUFFER --"
   :cursor box)
 
@@ -222,8 +222,11 @@ Each pair KEYn FUNCTIONn is defined in MAP after the evilification of it."
          (defkey (when bindings `(evil-define-key 'evilified ,map ,@bindings)))
          (body
           (progn
+
             (evilified-state--define-pre-bindings map pre-bindings)
-            `(
+
+            `((evil-make-intercept-map ,map 'motion)
+
               ;; we need to work on a local copy of the evilified keymap to
               ;; prevent the original keymap from being mutated.
               (setq evil-evilified-state-map (copy-keymap ,evilified-map))
