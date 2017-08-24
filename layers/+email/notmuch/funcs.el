@@ -31,25 +31,3 @@
       "create a new frame for the mail composition"
       (compose-mail-other-frame))
     (notmuch-show-next-thread t)))
-
-(defun spacemacs/notmuch-show-prefer-html-over-text ()
-  (interactive)
-  (let* ((text-button (save-excursion
-                        (goto-char (point-min))
-                        (search-forward "[ text/plain ]"
-                                        (point-max)
-                                        t)))
-         (html-button (save-excursion
-                        (goto-char (point-min))
-                        (search-forward "[ text/html (hidden) ]"
-                                        (point-max)
-                                        t))))
-    (when html-button
-      (save-excursion
-        (goto-char (- html-button 1))
-        (notmuch-show-toggle-part-invisibility)))
-    (when text-button
-      (save-excursion
-        (goto-char (- text-button 1))
-        (notmuch-show-toggle-part-invisibility)))))
-
