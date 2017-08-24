@@ -66,7 +66,10 @@
         :bindings
         (kbd "N") 'notmuch-show-next-message
         (kbd "n") 'notmuch-show-next-open-message
-        (kbd "T") 'spacemacs/notmuch-trash-show)
+        (kbd "zb") 'evil-scroll-line-to-bottom
+        (kbd "zt") 'evil-scroll-line-to-top
+        (kbd "zz") 'evil-scroll-line-to-center
+        )
 
       ;;;;;;;;;;;;;;;;;;;;;;;;;;;
       ;; notmuch-tree-mode-map ;;
