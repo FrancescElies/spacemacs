@@ -61,11 +61,14 @@
         "sd" 'notmuch-show-stash-date
         "sc" 'notmuch-show-stash-cc
         )
+
       (evilified-state-evilify-map notmuch-show-mode-map
         :mode notmuch-show-mode
         :bindings
         (kbd "N") 'notmuch-show-next-message
         (kbd "n") 'notmuch-show-next-open-message
+        (kbd "o") 'notmuch-show-open-or-close-all
+        (kbd "O") 'spacemacs/notmuch-show-close-all
         (kbd "zb") 'evil-scroll-line-to-bottom
         (kbd "zt") 'evil-scroll-line-to-top
         (kbd "zz") 'evil-scroll-line-to-center

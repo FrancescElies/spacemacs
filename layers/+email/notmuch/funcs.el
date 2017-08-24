@@ -13,6 +13,12 @@
   (interactive)
   (spacemacs/notmuch-message-delete "up"))
 
+(defun spacemacs/notmuch-show-close-all ()
+  (interactive)
+  (goto-char (point-min))
+  (setq current-prefix-arg '(4))
+  (call-interactively 'notmuch-show-open-or-close-all))
+
 (defun spacemacs/notmuch-trash (&optional beg end)
   "trash by removing inbox and adding trash"
   (interactive (notmuch-search-interactive-region))

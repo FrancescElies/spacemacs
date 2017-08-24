@@ -139,6 +139,8 @@ Configure =~/.msmtprc= [[http://msmtp.sourceforge.net/doc/msmtprc.txt][example]]
 
 | Keybinding | Command                               |
 |------------+---------------------------------------|
+| ~o~        | notmuch-show-open-or-close-all        |
+| ~O~        | spacemacs/notmuch-show-close-all      |
 | ~d~        | spacemacs/notmuch-message-delete-down |
 | ~D~        | spacemacs/notmuch-message-delete-up   |
 | ~J~        | notmuch-jump-search                   |
