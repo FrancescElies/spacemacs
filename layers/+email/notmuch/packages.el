@@ -97,16 +97,8 @@
         "*" 'notmuch-search-tag-all
         "a" 'notmuch-search-archive-thread
         "-" 'notmuch-search-remove-tag
-        "+" 'notmuch-search-add-tag
-        )
-
-      (setq message-sendmail-f-is-evil 't)
+        "+" 'notmuch-search-add-tag)
       ))
-
-
-  ;; from https://github.com/fgeller/emacs.d/blob/master/email.org
-  (add-hook 'notmuch-show-hook 'spacemacs/notmuch-show-prefer-html-over-text)
-
 
   ;; fixes: killing a notmuch buffer does not show the previous buffer
   (push "\\*notmuch.+\\*" spacemacs-useful-buffers-regexp)

@@ -101,7 +101,6 @@ Configure =~/.msmtprc= [[http://msmtp.sourceforge.net/doc/msmtprc.txt][example]]
 | ~*~        | notmuch-search-tag-all                  |
 | ~+~        | notmuch-search-add-tag                  |
 | ~-~        | notmuch-search-remove-tag               |
-| ~A~        | spacemacs/archive-by-removing-inbox-tag |
 | ~a~        | notmuch-search-archive-thread           |
 
 ** Tree mode
@@ -140,7 +139,6 @@ Configure =~/.msmtprc= [[http://msmtp.sourceforge.net/doc/msmtprc.txt][example]]
 
 | Keybinding | Command                               |
 |------------+---------------------------------------|
-| ~a~        | spacemacs/notmuch-message-archive     |
 | ~d~        | spacemacs/notmuch-message-delete-down |
 | ~D~        | spacemacs/notmuch-message-delete-up   |
 | ~J~        | notmuch-jump-search                   |
@@ -160,7 +158,6 @@ Configure =~/.msmtprc= [[http://msmtp.sourceforge.net/doc/msmtprc.txt][example]]
 | ~a~        | notmuch-search-archive-thread           |
 | ~-~        | notmuch-search-remove-tag               |
 | ~+~        | notmuch-search-add-tag                  |
-| ~F~        | spacemacs/archive-by-removing-inbox-tag |
 
 * See also
 Refer to the official notmuch website for more information.
