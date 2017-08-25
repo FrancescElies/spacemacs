@@ -141,6 +141,12 @@ Configure =~/.msmtprc= [[http://msmtp.sourceforge.net/doc/msmtprc.txt][example]]
 |------------+---------------------------------------|
 | ~o~        | notmuch-show-open-or-close-all        |
 | ~O~        | spacemacs/notmuch-show-close-all      |
+| ~n~        | notmuch-show-next-open-message        |
+| ~N~        | notmuch-show-next-message             |
+| ~p~        | notmuch-show-previous-open-message    |
+| ~P~        | notmuch-show-previous-message         |
+| ~C-n~      | notmuch-show-next-thread-show         |
+| ~C-p~      | notmuch-show-previous-thread-show     |
 | ~d~        | spacemacs/notmuch-message-delete-down |
 | ~D~        | spacemacs/notmuch-message-delete-up   |
 | ~J~        | notmuch-jump-search                   |
