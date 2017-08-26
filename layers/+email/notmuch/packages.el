@@ -73,9 +73,6 @@
         (kbd "P")   'notmuch-show-previous-message
         (kbd "o")   'notmuch-show-open-or-close-all
         (kbd "O")   'spacemacs/notmuch-show-close-all
-        (kbd "zb")  'evil-scroll-line-to-bottom
-        (kbd "zt")  'evil-scroll-line-to-top
-        (kbd "zz")  'evil-scroll-line-to-center
         )
 
       ;;;;;;;;;;;;;;;;;;;;;;;;;;;
