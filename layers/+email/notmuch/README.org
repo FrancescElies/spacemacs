@@ -155,6 +155,7 @@ Configure =~/.msmtprc= [[http://msmtp.sourceforge.net/doc/msmtprc.txt][example]]
 | ~gr~       | notmuch-refresh-this-buffer           |
 | ~gR~       | notmuch-refresh-all-buffers           |
 | ~G~        | notmuch-search-last-thread            |
+| ~S~        | helm-notmuch (interactive search)     |
 | ~T~        | spacemacs/notmuch-trash               |
 | ~m~        | compose-mail-other-frame              |
 
