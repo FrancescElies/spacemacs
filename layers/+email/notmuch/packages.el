@@ -73,6 +73,7 @@
         (kbd "P")   'notmuch-show-previous-message
         (kbd "o")   'notmuch-show-open-or-close-all
         (kbd "O")   'spacemacs/notmuch-show-close-all
+        (kbd "S") 'helm-notmuch
         )
 
       ;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -98,6 +99,7 @@
         (kbd "gR") 'notmuch-refresh-all-buffers
         (kbd "G") 'notmuch-search-last-thread
         (kbd "T") 'spacemacs/notmuch-trash
+        (kbd "S") 'helm-notmuch
         (kbd "M") 'compose-mail-other-frame)
 
       (evil-define-key 'visual notmuch-search-mode-map
