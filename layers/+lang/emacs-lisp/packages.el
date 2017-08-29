@@ -74,6 +74,15 @@
         (spacemacs/set-leader-keys-for-major-mode mode
           "df" 'spacemacs/edebug-instrument-defun-on
           "dF" 'spacemacs/edebug-instrument-defun-off))
+      ;; since we evilify `edebug-mode-map' we don't need to intercept it to
+      ;; make it work with evil
+     (evil-set-custom-state-maps
+      'evil-intercept-maps
+      'evil-pending-intercept-maps
+      'intercept-state
+      'evil-make-intercept-map
+      (delq (assq 'edebug-mode-map evil-intercept-maps)
+            evil-intercept-maps))
       (evilified-state-evilify-map edebug-mode-map
         :eval-after-load edebug
         :bindings
