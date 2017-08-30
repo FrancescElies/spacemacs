@@ -136,28 +136,28 @@ Configure =~/.msmtprc= [[http://msmtp.sourceforge.net/doc/msmtprc.txt][example]]
 
 **** Evilified state
 
-| Keybinding | Command                               |
-|------------+---------------------------------------|
-| ~o~        | notmuch-show-open-or-close-all        |
-| ~O~        | spacemacs/notmuch-show-close-all      |
-| ~n~        | notmuch-show-next-open-message        |
-| ~N~        | notmuch-show-next-message             |
-| ~p~        | notmuch-show-previous-open-message    |
-| ~P~        | notmuch-show-previous-message         |
-| ~C-n~      | notmuch-show-next-thread-show         |
-| ~C-p~      | notmuch-show-previous-thread-show     |
-| ~d~        | spacemacs/notmuch-message-delete-down |
-| ~D~        | spacemacs/notmuch-message-delete-up   |
-| ~J~        | notmuch-jump-search                   |
-| ~L~        | notmuch-search-filter                 |
-| ~gf~       | find file or URL at point             |
-| ~gg~       | notmuch-search-first-thread           |
-| ~gr~       | notmuch-refresh-this-buffer           |
-| ~gR~       | notmuch-refresh-all-buffers           |
-| ~G~        | notmuch-search-last-thread            |
-| ~S~        | helm-notmuch (interactive search)     |
-| ~T~        | spacemacs/notmuch-trash               |
-| ~m~        | compose-mail-other-frame              |
+| Keybinding | Description                       |
+|------------+-----------------------------------|
+| ~o~        | Open all messages                 |
+| ~O~        | Close all messages                |
+| ~n~        | Show next open message            |
+| ~N~        | Show next message                 |
+| ~p~        | Show previous open message        |
+| ~P~        | Show previous message             |
+| ~C-n~      | Show next thread                  |
+| ~C-p~      | Show previous thread              |
+| ~d~        | Delete messages down              |
+| ~D~        | Delete messages up                |
+| ~J~        | Jump search                       |
+| ~L~        | Filter current search             |
+| ~gf~       | Find file or URL at point         |
+| ~gg~       | Jump to top                       |
+| ~G~        | Jump to bottom                    |
+| ~gr~       | Refresh buffer                    |
+| ~gR~       | Refresh all buffers               |
+| ~S~        | helm-notmuch (interactive search) |
+| ~T~        | Trash message                     |
+| ~m~        | Compose mail                      |
 
 
 * See also
