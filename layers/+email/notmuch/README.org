@@ -156,7 +156,6 @@ Configure =~/.msmtprc= [[http://msmtp.sourceforge.net/doc/msmtprc.txt][example]]
 | ~gr~       | Refresh buffer                    |
 | ~gR~       | Refresh all buffers               |
 | ~S~        | helm-notmuch (interactive search) |
-| ~T~        | Trash message                     |
 | ~m~        | Compose mail                      |
 
 
