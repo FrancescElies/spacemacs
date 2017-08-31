@@ -37,3 +37,25 @@
       "create a new frame for the mail composition"
       (compose-mail-other-frame))
     (notmuch-show-next-thread t)))
+
+
+;;;;;;;;;
+;; git ;;
+;;;;;;;;;
+
+(defun spacemacs/notmuch-git-apply-patch (entire-thread)
+  "Apply patch from a notmuch-show email buffer to a git repository
+
+If ENTIRE-THREAD is non-nil it will apply patches from all open
+messages in the current thread"
+  (interactive "P")
+  (notmuch-show-pipe-message entire-thread "git am"))
+
+(defun spacemacs/notmuch-git-apply-patch-part ()
+  "Apply patch attached to a message as MIME part to a git repository."
+  (interactive)
+  (let ((mime-type nil))
+    (notmuch-show-apply-to-current-part-handle (lambda ()
+                                                 (mm-pipe-part (notmuch-show-current-part-handle mime-type) "git am")))))
+
+

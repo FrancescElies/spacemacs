@@ -22,7 +22,8 @@
     :config
     (progn
       (dolist (prefix '(("ms" . "stash")
-                        ("mp" . "part")))
+                        ("mp" . "part")
+                        ("mP" . "patch")))
         (spacemacs/declare-prefix-for-mode 'notmuch-show-mode
           (car prefix)
           (cdr prefix)))
@@ -60,6 +61,9 @@
         "sF" 'notmuch-show-stash-filename
         "sd" 'notmuch-show-stash-date
         "sc" 'notmuch-show-stash-cc
+        ;; patch
+        "Pa" 'spacemacs/notmuch-git-apply-patch
+        "PA" 'spacemacs/notmuch-git-apply-patch-part
         )
 
       (evilified-state-evilify-map notmuch-show-mode-map
