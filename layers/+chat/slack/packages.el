@@ -67,6 +67,7 @@
         "aCj" 'slack-channel-select
         "aCg" 'slack-group-select
         "aCr" 'slack-select-rooms
+        "aCu" 'slack-select-unread-rooms
         "aCd" 'slack-im-select
         "aCq" 'slack-ws-close)
       (setq slack-enable-emoji t))
@@ -76,6 +77,7 @@
         "j" 'slack-channel-select
         "g" 'slack-group-select
         "r" 'slack-select-rooms
+        "u" 'slack-select-unread-rooms
         "d" 'slack-im-select
         "p" 'slack-room-load-prev-messages
         "e" 'slack-message-edit
