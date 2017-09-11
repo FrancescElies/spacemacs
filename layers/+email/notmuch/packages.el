@@ -103,7 +103,6 @@
         (kbd "gr") 'notmuch-refresh-this-buffer
         (kbd "gR") 'notmuch-refresh-all-buffers
         (kbd "G") 'notmuch-search-last-thread
-        (kbd "T") 'spacemacs/notmuch-trash
         (kbd "M") 'compose-mail-other-frame)
 
       (evil-define-key 'visual notmuch-search-mode-map
