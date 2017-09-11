@@ -15,7 +15,6 @@
       - [[#evilified-state][Evilified state]]
   - [[#search-mode][Search mode]]
       - [[#evilified-state-1][Evilified state]]
-      - [[#visual-state][Visual state]]
   - [[#tree-mode][Tree mode]]
       - [[#evilified-state-2][Evilified state]]
   - [[#show-mode][Show mode]]
@@ -79,33 +78,31 @@ Configure =~/.msmtprc= [[http://msmtp.sourceforge.net/doc/msmtprc.txt][example]]
 ** Hello mode
 
 **** Evilified state
-| Keybinding | Command                           |
-|------------+-----------------------------------|
-| ~J~        | notmuch-jump-search               |
-| ~s~        | notmuch-search                    |
+| Keybinding | Command                     |
+|------------+-----------------------------|
+| ~J~        | Jump to a saved search      |
+| ~s~        | Show threads matching QUERY |
 
 ** Search mode
 
 **** Evilified state
-| Keybinding | Command                        |
-|------------+--------------------------------|
-| ~J~        | notmuch-jump-search            |
-| ~N~        | notmuch-show-next-message      |
-| ~n~        | notmuch-show-next-open-message |
+| Keybinding | Command                   |
+|------------+---------------------------|
+| ~J~        | Jump to saved search      |
+| ~*~        | [Thread]  Add/Remove tags |
+| ~+~        | [Message] Add tags        |
+| ~-~        | [Message] Remove tags     |
+| ~a~        | [Message] Archive         |
 
-**** Visual state
-| Keybinding | Command                                 |
-|------------+-----------------------------------------|
-| ~*~        | notmuch-search-tag-all                  |
-| ~+~        | notmuch-search-add-tag                  |
-| ~-~        | notmuch-search-remove-tag               |
-| ~a~        | notmuch-search-archive-thread           |
 
 ** Tree mode
 **** Evilified state
-| Keybinding | Command |
-|------------+---------|
-|            |         |
+| Keybinding | Command                   |
+|------------+---------------------------|
+| ~*~        | [Thread]  Add/Remove tags |
+| ~+~        | [Message] Add tags        |
+| ~-~        | [Message] Remove tags     |
+| ~a~        | [Message] Archive         |
 
 ** Show mode
 
