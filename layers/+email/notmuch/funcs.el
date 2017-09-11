@@ -19,24 +19,6 @@
   (setq current-prefix-arg '(4))
   (call-interactively 'notmuch-show-open-or-close-all))
 
-(defun spacemacs/notmuch-trash (&optional beg end)
-  "trash by removing inbox and adding trash"
-  (interactive (notmuch-search-interactive-region))
-  (notmuch-search-tag (list "-inbox" "+trash")
-                      beg
-                      end)
-  (when (eq beg end)
-    (notmuch-search-next-thread)))
-
-(defun spacemacs/notmuch-trash-show ()
-  "trash shown msg by removing inbox and adding trash"
-  (interactive)
-  (notmuch-show-add-tag (list "-inbox" "+trash"))
-  (unless (notmuch-show-next-open-message)
-    (defun spacemacs/compose-mail-other-frame ()
-      "create a new frame for the mail composition"
-      (compose-mail-other-frame))
-    (notmuch-show-next-thread t)))
 
 
 ;;;;;;;;;

@@ -92,7 +92,6 @@ Configure =~/.msmtprc= [[http://msmtp.sourceforge.net/doc/msmtprc.txt][example]]
 | ~J~        | notmuch-jump-search            |
 | ~N~        | notmuch-show-next-message      |
 | ~n~        | notmuch-show-next-open-message |
-| ~T~        | spacemacs/notmuch-trash-show   |
 
 **** Visual state
 | Keybinding | Command                                 |
