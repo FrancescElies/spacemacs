@@ -109,28 +109,28 @@ Configure =~/.msmtprc= [[http://msmtp.sourceforge.net/doc/msmtprc.txt][example]]
 ** Show mode
 
 
-| Keybinding      | Command                                  |
-|-----------------+------------------------------------------|
-| ~SPC m a~       | notmuch-show-save-attachments            |
-|-----------------+------------------------------------------|
-| ~SPC m p m~     | notmuch-show-choose-mime-of-part         |
-| ~SPC m p \vert~ | notmuch-show-pipe-part                   |
-| ~SPC m p o~     | notmuch-show-interactively-view-part     |
-| ~SPC m p v~     | notmuch-show-view-part                   |
-| ~SPC m p s~     | notmuch-show-save-part                   |
-|-----------------+------------------------------------------|
-| ~SPC m s G~     | notmuch-show-stash-git-send-email        |
-| ~SPC m s L~     | notmuch-show-stash-mlarchive-link-and-go |
-| ~SPC m s l~     | notmuch-show-stash-mlarchive-link        |
-| ~SPC m s t~     | notmuch-show-stash-to                    |
-| ~SPC m s T~     | notmuch-show-stash-tags                  |
-| ~SPC m s s~     | notmuch-show-stash-subject               |
-| ~SPC m s I~     | notmuch-show-stash-message-id-stripped   |
-| ~SPC m s i~     | notmuch-show-stash-message-id            |
-| ~SPC m s f~     | notmuch-show-stash-from                  |
-| ~SPC m s F~     | notmuch-show-stash-filename              |
-| ~SPC m s d~     | notmuch-show-stash-date                  |
-| ~SPC m s c~     | notmuch-show-stash-cc                    |
+| Keybinding      | Command                                                                        |
+|-----------------+--------------------------------------------------------------------------------|
+| ~SPC m a~       | [ATTACHMENTS] Save all attachments                                             |
+|-----------------+--------------------------------------------------------------------------------|
+| ~SPC m p m~     | [PART] Choose the mime type to use for displaying                              |
+| ~SPC m p \vert~ | [PART] Pipe part at point to an external command                               |
+| ~SPC m p o~     | [PART] View part at point (prompt for a viewer)                                |
+| ~SPC m p v~     | [PART] View part at point in an external viewer                                |
+| ~SPC m p s~     | [PART] Save part at point to a file                                            |
+|-----------------+--------------------------------------------------------------------------------|
+| ~SPC m s c~     | [STASH] Copy =CC= to kill-ring                                                 |
+| ~SPC m s d~     | [STASH] Copy =timestamp= to kill-ring                                          |
+| ~SPC m s G~     | [STASH] Copy =From/To/Cc/Message-Id= of current message to kill-ring           |
+| ~SPC m s l~     | [STASH] [Mailing List Archive] Copy =ML Archive URI= to kill-ring              |
+| ~SPC m s L~     | [STASH] [Mailing List Archive] Copy =ML Archive URI= to kill-ring and visit it |
+| ~SPC m s i~     | [STASH] Copy =message-id= to kill-ring                                         |
+| ~SPC m s I~     | [STASH] Copy =message-id= without =id:= prefix to kill-ring                    |
+| ~SPC m s f~     | [STASH] Copy =From address= to kill-ring                                       |
+| ~SPC m s F~     | [STASH] Copy =filename= to kill-ring                                           |
+| ~SPC m s s~     | [STASH] Copy =Subject= to kill-ring                                            |
+| ~SPC m s t~     | [STASH] Copy =To address= to kill-ring                                         |
+| ~SPC m s T~     | [STASH] Copy =tags= to kill-ring                                               |
 
 **** Evilified state
 
