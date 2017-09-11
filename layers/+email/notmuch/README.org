@@ -83,7 +83,6 @@ Configure =~/.msmtprc= [[http://msmtp.sourceforge.net/doc/msmtprc.txt][example]]
 |------------+-----------------------------------|
 | ~J~        | notmuch-jump-search               |
 | ~s~        | notmuch-search                    |
-| ~S~        | helm-notmuch (interactive search) |
 
 ** Search mode
 
@@ -156,7 +155,6 @@ Configure =~/.msmtprc= [[http://msmtp.sourceforge.net/doc/msmtprc.txt][example]]
 | ~G~        | Jump to bottom                    |
 | ~gr~       | Refresh buffer                    |
 | ~gR~       | Refresh all buffers               |
-| ~S~        | helm-notmuch (interactive search) |
 | ~m~        | Compose mail                      |
 
 
