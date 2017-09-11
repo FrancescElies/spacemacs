@@ -104,6 +104,8 @@ Configure =~/.msmtprc= [[http://msmtp.sourceforge.net/doc/msmtprc.txt][example]]
 | ~-~        | [Message] Remove tags     |
 | ~a~        | [Message] Archive         |
 
+  TODO: `a` seems not to work
+
 ** Show mode
 
 
