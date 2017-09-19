@@ -19,6 +19,7 @@
       - [[#evilified-state-2][Evilified state]]
   - [[#show-mode][Show mode]]
       - [[#evilified-state-3][Evilified state]]
+  - [[#message-mode][Message mode]]
 - [[#see-also][See also]]
 
 * Install
@@ -155,6 +156,12 @@ Configure =~/.msmtprc= [[http://msmtp.sourceforge.net/doc/msmtprc.txt][example]]
 | ~gR~       | Refresh all buffers               |
 | ~m~        | Compose mail                      |
 
+
+** Message mode
+
+| Keybinding | Command                                 |
+|------------+-----------------------------------------|
+| ~SPC m i~  | [GNUS ALIAS] Select identity and use it |
 
 * See also
 Refer to the official notmuch website for more information.
