@@ -114,6 +114,8 @@ Configure =~/.msmtprc= [[http://msmtp.sourceforge.net/doc/msmtprc.txt][example]]
 |-----------------+--------------------------------------------------------------------------------|
 | ~SPC m a~       | [ATTACHMENTS] Save all attachments                                             |
 |-----------------+--------------------------------------------------------------------------------|
+| ~SPC m P g~     | [PATCH] Open github patch in a new buffer                                      |
+|-----------------+--------------------------------------------------------------------------------|
 | ~SPC m p m~     | [PART] Choose the mime type to use for displaying                              |
 | ~SPC m p \vert~ | [PART] Pipe part at point to an external command                               |
 | ~SPC m p o~     | [PART] View part at point (prompt for a viewer)                                |
