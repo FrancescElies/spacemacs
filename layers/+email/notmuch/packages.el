@@ -101,7 +101,8 @@
       (evilified-state-evilify-map notmuch-search-mode-map
         :mode notmuch-search-mode
         :bindings
-        (kbd "a") 'notmuch-search-archive-thread
+        (kbd "a") 'spacemacs/notmuch-search-archive-thread-down
+        (kbd "A") 'spacemacs/notmuch-search-archive-thread-up
         (kbd "d") 'spacemacs/notmuch-message-delete-down
         (kbd "D") 'spacemacs/notmuch-message-delete-up
         (kbd "J") 'notmuch-jump-search

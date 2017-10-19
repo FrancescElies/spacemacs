@@ -1,3 +1,13 @@
+(defun spacemacs/notmuch-search-archive-thread-down ()
+  (interactive)
+  (notmuch-search-archive-thread))
+
+(defun spacemacs/notmuch-search-archive-thread-up ()
+  (interactive)
+  (notmuch-search-archive-thread)
+  (notmuch-search-previous-thread)
+  (notmuch-search-previous-thread))
+
 (defun spacemacs/notmuch-message-delete (go-next)
   (interactive)
   (notmuch-search-tag '("+deleted" "-inbox" "-unread"))
