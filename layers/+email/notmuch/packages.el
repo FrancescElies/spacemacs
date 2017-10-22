@@ -75,12 +75,6 @@
       (evilified-state-evilify-map notmuch-show-mode-map
         :mode notmuch-show-mode
         :bindings
-        (kbd "C-n") 'notmuch-show-next-thread-show
-        (kbd "C-p") 'notmuch-show-previous-thread-show
-        (kbd "N")   'notmuch-show-next-message
-        (kbd "n")   'notmuch-show-next-open-message
-        (kbd "p")   'notmuch-show-previous-open-message
-        (kbd "P")   'notmuch-show-previous-message
         (kbd "o")   'notmuch-show-open-or-close-all
         (kbd "O")   'spacemacs/notmuch-show-close-all
         )
