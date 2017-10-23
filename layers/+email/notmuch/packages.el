@@ -36,12 +36,6 @@
       (evilified-state-evilify-map notmuch-hello-mode-map
         :mode notmuch-hello-mode)
 
-      ;;;;;;;;;;;;;;;;;;;;;;;;;;
-      ;; notmuch-message-mode ;;
-      ;;;;;;;;;;;;;;;;;;;;;;;;;;
-      (spacemacs/set-leader-keys-for-major-mode 'notmuch-message-mode
-        "i" 'gnus-alias-select-identity)
-
       ;;;;;;;;;;;;;;;;;;;;;;;
       ;; notmuch-show mode ;;
       ;;;;;;;;;;;;;;;;;;;;;;;
