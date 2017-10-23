@@ -42,7 +42,15 @@
                (user-error "No patch found"))))))
     (with-current-buffer (get-buffer-create
                           (generate-new-buffer-name "*mail-github-patch*"))
-      (url-insert-file-contents url)
+
+      (condition-case exception
+          (url-insert-file-contents url)
+        ('file-error
+         ;; In case the link is private repository github will respond with a
+         ;; temporary redirect 302 HTTP code and calculate the request-token
+         ;; with javascript. In this case open diff in browser
+         (browse-url url)))
+
       (diff-mode)
       (view-mode 1)
       (pop-to-buffer (current-buffer)))))
