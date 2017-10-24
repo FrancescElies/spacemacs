@@ -69,6 +69,12 @@
       (evilified-state-evilify-map notmuch-show-mode-map
         :mode notmuch-show-mode
         :bindings
+        ;; In notmuch-show-mode n would be bound to `notmuch-show-next-message`
+        ;; but the evilified state moves the `n' bound function to C-n while
+        ;; it's counterpart `notmuch-show-previous-message` remains bound to
+        ;; `p'. Adding a binding for the previous function to `C-p' becomes
+        ;; handy while navigation messages back and forth.
+        (kbd "C-p")   'notmuch-show-previous-message
         (kbd "o")   'notmuch-show-open-or-close-all
         (kbd "O")   'spacemacs/notmuch-show-close-all
         )
