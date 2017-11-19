@@ -1,3 +1,7 @@
+(defun spacemacs/notmuch-inbox ()
+  (interactive)
+  (notmuch-search "tag:inbox"))
+
 (defun spacemacs/notmuch-search-archive-thread-down ()
   (interactive)
   (notmuch-search-archive-thread))
