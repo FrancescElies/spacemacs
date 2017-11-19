@@ -37,27 +37,27 @@
 ;; Thanks to Kyle Meyer (@kyleam)
 (defun spacemacs/notmuch-open-github-patch (buffer)
   "Find GitHub patch link in BUFFER and show it in a new buffer."
-  (let ((url
-         (with-current-buffer buffer
-           (save-excursion
-             (goto-char (point-min))
-             (if (re-search-forward "https://github.com/.*\\.patch" nil t)
-                 (match-string-no-properties 0)
-               (user-error "No patch found"))))))
-    (with-current-buffer (get-buffer-create
-                          (generate-new-buffer-name "*mail-github-patch*"))
-
+  (let ((url (with-current-buffer buffer
+               (save-excursion
+                 (goto-char (point-min))
+                 (if (re-search-forward "https://github.com/.*\\.patch"
+                                        nil t)
+                     (match-string-no-properties 0)
+                   (user-error "No patch found")))))
+        (buffer-github-patch "*mail-github-patch*"))
+    (with-current-buffer (get-buffer-create (generate-new-buffer-name buffer-github-patch))
       (condition-case exception
           (url-insert-file-contents url)
+        (diff-mode)
+        (view-mode 1)
+        (pop-to-buffer (current-buffer))
         ('file-error
          ;; In case the link is private repository github will respond with a
          ;; temporary redirect 302 HTTP code and calculate the request-token
-         ;; with javascript. In this case open diff in browser
-         (browse-url url)))
-
-      (diff-mode)
-      (view-mode 1)
-      (pop-to-buffer (current-buffer)))))
+         ;; with javascript. In this case open diff in browser and close buffer
+         (progn
+           (kill-buffer buffer-github-patch)
+           (browse-url url)))))))
 
 (defun spacemacs/notmuch-show-open-github-patch ()
   "Open patch from GitHub email."
