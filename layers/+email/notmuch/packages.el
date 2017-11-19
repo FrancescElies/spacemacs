@@ -19,6 +19,7 @@
     (progn
       (spacemacs/declare-prefix "aN" "notmuch")
       (spacemacs/set-leader-keys "aNN" 'notmuch)
+      (spacemacs/set-leader-keys "aNi" 'spacemacs/notmuch-inbox)
       (spacemacs/set-leader-keys "aNn" 'helm-notmuch)
       (load-library "org-notmuch"))
     :config
