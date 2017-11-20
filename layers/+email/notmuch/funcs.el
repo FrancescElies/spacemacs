@@ -1,6 +1,11 @@
+(defun spacemacs/notmuch-inbox-p (saved-search-property-item)
+  (string-equal (plist-get saved-search-property-item :name) "inbox"))
+
 (defun spacemacs/notmuch-inbox ()
   (interactive)
-  (notmuch-search "tag:inbox"))
+  (notmuch-search (plist-get (nth 0
+                                  (-filter 'spacemacs/notmuch-inbox-p notmuch-saved-searches))
+                             :query)))
 
 (defun spacemacs/notmuch-search-archive-thread-down ()
   (interactive)
