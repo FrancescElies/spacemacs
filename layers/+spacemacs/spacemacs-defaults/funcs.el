@@ -508,6 +508,14 @@ If the universal prefix argument is used then will the windows too."
     (when (equal '(4) arg) (delete-other-windows))
     (message "Buffers deleted!")))
 
+(defun spacemacs/kill-other-tramp-buffers ()
+  "Kill all other tramp-buffers."
+  (interactive)
+  (when (yes-or-no-p (format "Killing all tramp-buffers except \"%s\"? "
+                             (buffer-name)))
+    (mapc 'kill-buffer (delq (current-buffer) (tramp-list-remote-buffers)))
+    (message "Tramp buffers deleted!")))
+
 ;; from http://dfan.org/blog/2009/02/19/emacs-dedicated-windows/
 (defun spacemacs/toggle-current-window-dedication ()
   "Toggle dedication state of a window. Commands that change the buffer that a
