@@ -9,5 +9,5 @@
 ;;
 ;;; License: GPLv3
 
-(when c-c++-enable-rtags-support
+(when (bound-and-true-p c-c++-enable-rtags-support)
   (configuration-layer/declare-layer 'gtags))
