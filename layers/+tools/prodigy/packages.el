@@ -18,7 +18,6 @@
     :config
     (progn
       (evilified-state-evilify prodigy-mode prodigy-mode-map
-        "c" 'prodigy-view-clear-buffer
         "h" 'prodigy-first
         "j" 'prodigy-next
         "k" 'prodigy-prev
@@ -32,5 +31,6 @@
         "Y" 'prodigy-copy-cmd
         "R" 'revert-buffer)
       (evilified-state-evilify prodigy-view-mode prodigy-view-mode-map
+        "c" 'prodigy-view-clear-buffer
         "gf" 'find-file-at-point
         "q" 'quit-window))))
