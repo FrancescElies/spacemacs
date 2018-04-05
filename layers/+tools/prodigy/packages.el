@@ -18,6 +18,7 @@
     :config
     (progn
       (evilified-state-evilify prodigy-mode prodigy-mode-map
+        "c" 'prodigy-clear-underlaying-buffers
         "h" 'prodigy-first
         "j" 'prodigy-next
         "k" 'prodigy-prev
