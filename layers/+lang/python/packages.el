@@ -38,6 +38,7 @@
         semantic
         smartparens
         stickyfunc-enhance
+        traad
         xcscope
         yapfify
         ;; packages for anaconda backend
@@ -158,6 +159,22 @@
       (spacemacs|diminish importmagic-mode " ⓘ" " [i]")
       (spacemacs/set-leader-keys-for-major-mode 'python-mode
         "rf" 'importmagic-fix-symbol-at-point))))
+
+(defun python/init-traad ()
+  (use-package traad
+    :defer t
+    :init
+    (progn
+      (spacemacs/declare-prefix-for-mode 'python-mode "mrt" "traad")
+      (spacemacs/set-leader-keys-for-major-mode 'python-mode
+        "rte" 'traad-expand-star-imports
+        "rtf" 'traad-froms-to-imports
+        "rtl" 'traad-handle-long-imports
+        "rto" 'traad-organize-imports
+        "rtr" 'traad-rename
+        "rtR" 'traad-rename-module
+        "rts" 'traad-imports-super-smackdown
+        ))))
 
 (defun python/init-live-py-mode ()
   (use-package live-py-mode
