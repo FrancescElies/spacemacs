@@ -34,7 +34,11 @@ This assumes you don't have an existing Emacs setup and want to run Spacemacs as
 your config. If you do have one, look at
 the [full installation instructions](#install) for other options.
 
-    git clone https://github.com/FrancescElies/spacemacs ~/.emacs.d
+    # git clone https://github.com/FrancescElies/spacemacs ~/.emacs.d
+    # on windows: git config --global core.autocrlf false
+    git clone git@github.com:FrancescElies/spacemacs.git ~/.emacs.d
+    cd ~/.emacs.d
+    git checkout develop
 
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-generate-toc again -->
 **Table of Contents**
