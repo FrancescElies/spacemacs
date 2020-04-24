@@ -36,6 +36,7 @@ the [full installation instructions](#install) for other options.
 
     # git clone https://github.com/FrancescElies/spacemacs ~/.emacs.d
     # on windows: git config --global core.autocrlf false
+    #             New-Item -ItemType HardLink -Name .spacemacs -Value .\src\my-emacs\.spacemacs
     git clone git@github.com:FrancescElies/spacemacs.git ~/.emacs.d
     cd ~/.emacs.d
     git checkout develop
